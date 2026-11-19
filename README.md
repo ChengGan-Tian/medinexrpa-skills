@@ -56,6 +56,11 @@ skills/
       script-guide.md     浏览器版脚本结构
       kit-reference.md    kit API
       kit-web.md          Web kit API
+    assets/
+      script-template.js  可直接复制的脚本骨架
+    evals/
+      evals.json          浏览器版能力评测用例
+      trigger-evals.json  触发词评测集
 ```
 
 ## 说明

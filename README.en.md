@@ -56,6 +56,11 @@ skills/
       script-guide.md     Browser script structure
       kit-reference.md    kit API
       kit-web.md          Web kit API
+    assets/
+      script-template.js  Copyable script skeleton
+    evals/
+      evals.json          Browser capability evals
+      trigger-evals.json  Trigger-word eval set
 ```
 
 ## Notes

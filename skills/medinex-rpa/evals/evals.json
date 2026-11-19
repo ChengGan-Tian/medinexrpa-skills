@@ -1,0 +1,71 @@
+{
+  "skill_name": "medinex-rpa",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "在浏览器版 MedinexRPA 里写一个脚本：打开搜索页，输入关键词，抓取前 3 页结果，空列表时停止。参数要能配置，并说明怎么验证。",
+      "expected_output": "先校验 URL 和参数，给出 meta/params/run 骨架、明确等待、checkpoint、翻页停止条件、instanceDir 产物和小样本验证步骤。",
+      "files": [],
+      "expectations": [
+        "先校验页面 URL 和必要参数",
+        "使用 meta + params + export async function run",
+        "使用明确等待而不是固定长 sleep",
+        "每轮循环调用 checkpoint",
+        "说明空列表和没有下一页的停止条件",
+        "产物写 instanceDir 并说明如何验证"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "浏览器版脚本点击后偶发 timeout，run.log 里只有一处报错。给我一套排查顺序，不要直接让我改选择器。",
+      "expected_output": "先定位 runId 和步骤，读 run.log 上下文，再看截图/trace，按定位/页面未就绪/竞态/遮挡/重试/业务状态分类根因，然后最小复现。",
+      "files": [],
+      "expectations": [
+        "先看 run.log 的最后步骤和上下文",
+        "检查失败截图和 trace.zip",
+        "按根因分类而不是直接猜选择器",
+        "说明如何做最小复现",
+        "不盲目增加重试或固定长延迟"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "点击后打开了新标签页，偶尔还会触发下载。浏览器版脚本应该怎么正确处理？",
+      "expected_output": "先注册 waitPage / waitDownload 再触发；新页面用 kit.forPage，不能以为 activatePage 会改变原 kit 的 Page；处理完关闭页面。",
+      "files": [],
+      "expectations": [
+        "说明等待要先注册再触发",
+        "使用 waitPage / waitDownload",
+        "新标签页使用 kit.forPage",
+        "说明 activatePage 不会改变原 kit 的 Page",
+        "处理完关闭新页面，避免泄漏"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "同一个脚本要同时跑多个浏览器实例，截图和中间文件应该怎么写才不会互相覆盖？",
+      "expected_output": "使用 instanceDir 和 instanceId；不要在 dataDir 根目录用固定文件名；progress 传每个实例的累计值；run 返回小摘要。",
+      "files": [],
+      "expectations": [
+        "产物写 instanceDir 而不是 dataDir 根目录",
+        "文件名带 instanceId 或天然按实例分目录",
+        "说明多实例共享 dataDir 的冲突风险",
+        "progress 传本实例的累计值",
+        "run 返回小型可序列化摘要"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "脚本改完了，怎么部署到安装版？部署前后各要确认什么？",
+      "expected_output": "先 node --check 和相关测试，再用 deploy-scripts 部署；确认目标环境、防回滚指纹和是否需要真实业务验证；不要把源码修改当成已部署。",
+      "files": [],
+      "expectations": [
+        "部署前做语法检查和对应测试",
+        "使用 node tools/deploy-scripts.mjs",
+        "确认部署目标环境",
+        "说明部署会写安装版和测试环境并打指纹",
+        "区分源码修改、测试通过和已部署"
+      ]
+    }
+  ]
+}
