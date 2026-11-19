@@ -1,0 +1,23 @@
+[
+  { "query": "帮我在 MedinexRPA Mobile 里写个脚本，打开一个 App 搜索关键词，进前 10 条结果再返回", "should_trigger": true },
+  { "query": "现有手机脚本用坐标点击，换手机就失效，怎么改成稳定的定位", "should_trigger": true },
+  { "query": "列表每次从详情返回后位置都会变，怎么遍历才不漏不重", "should_trigger": true },
+  { "query": "目标页面是 Flutter 自绘的，界面树里没有文字，怎么定位", "should_trigger": true },
+  { "query": "一次跑 4 台设备但只有 2 个并发，任务会怎么排队", "should_trigger": true },
+  { "query": "手机脚本报找不到控件，给我一套排查顺序", "should_trigger": true },
+  { "query": "MedinexRPA Mobile 支持哪些设备操作，device 和 kit 有什么区别", "should_trigger": true },
+  { "query": "脚本里怎么输入中文，setText 没反应", "should_trigger": true },
+  { "query": "改完脚本要重新打包吗，怎么让应用里看到新脚本", "should_trigger": true },
+  { "query": "MedinexRPA Mobile 和浏览器版是什么关系，脚本能通用吗", "should_trigger": true },
+
+  { "query": "帮我用 Playwright 写个浏览器脚本，抓取网页表格", "should_trigger": false },
+  { "query": "MedinexRPA 浏览器版怎么用 trace.zip 排查失败", "should_trigger": false },
+  { "query": "帮我写个 Excel 公式统计销售额", "should_trigger": false },
+  { "query": "Android 原生 App 怎么申请 USB 权限", "should_trigger": false },
+  { "query": "帮我把这个 APK 反编译看看资源", "should_trigger": false },
+  { "query": "scrcpy 命令行怎么用 --max-size 参数", "should_trigger": false },
+  { "query": "Appium 的 desired capabilities 怎么写", "should_trigger": false },
+  { "query": "帮我修一下 React 页面上的 CSS 布局", "should_trigger": false },
+  { "query": "怎么在手机上安装 Magisk 模块", "should_trigger": false },
+  { "query": "用 Python 的 uiautomator2 写个自动签到脚本", "should_trigger": false }
+]
