@@ -78,8 +78,8 @@ export async function run(ctx) {
 
       try {
         await kit.step(`处理 ${title || `${pageIndex + 1}-${i + 1}`}`, async () => {
-          await row.click();
-          await kit.waitStable();
+          await kit.click(row);
+          await kit.waitStable(() => page.locator(CONFIG.rowSelector).count());
           // TODO: 业务动作
         });
         summary.done += 1;

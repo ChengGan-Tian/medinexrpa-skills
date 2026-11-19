@@ -149,6 +149,15 @@ sleep 只用于已知节奏或退避，不代替结果等待
 非幂等：提交、删除、支付、发送，超时后先核实结果，不要“失败就再点一次”
 ```
 
+超时读数：
+
+```text
+约 8000ms    kit.click / fill / select / choose 的默认动作超时
+约 30000ms   waitElement / waitStable / 步骤级等待（waitTimeout 默认 30s）
+err.code === 'KIT_TIMEOUT'   超时
+err.cancelled === true       用户停止，不是失败
+```
+
 ## 日志、进度与产物
 
 ```text
