@@ -1,5 +1,5 @@
 ---
-name: MedinexRPA
+name: medinex-rpa
 description: 浏览器版 MedinexRPA（Electron + Playwright）的脚本开发、审查和调试指南；使用通用 kit、分析 run.log/截图/trace、设计回归、修复 RPA bug 和部署脚本。用户提到浏览器版 MedinexRPA、Playwright 浏览器脚本、浏览器实例、kit、元素定位、批量抓取、trace.zip 时使用。手机/Android 版请改用 medinexrpa-mobile。
 ---
 
