@@ -1,23 +1,98 @@
 [
-  { "query": "MedinexRPA 浏览器版怎么新建一个脚本", "should_trigger": true },
-  { "query": "kit.fill 和 kit.click 有什么区别，选择器怎么写", "should_trigger": true },
-  { "query": "浏览器脚本点击后偶发 timeout，run.log 只有一处报错，怎么排查", "should_trigger": true },
-  { "query": "点击后打开新标签页，waitPage 应该注册在哪里", "should_trigger": true },
-  { "query": "多实例同时跑，截图和 Excel 产物怎么放", "should_trigger": true },
-  { "query": "改完脚本怎么部署到安装版，deploy-scripts 怎么用", "should_trigger": true },
-  { "query": "trace.zip 怎么看，失败截图在哪里", "should_trigger": true },
-  { "query": "meta.useCurrentPage 是什么意思，什么时候用", "should_trigger": true },
-  { "query": "kit.forPage 和 activatePage 有什么区别", "should_trigger": true },
-  { "query": "怎么写浏览器脚本的 HAR 回归和空列表用例", "should_trigger": true },
-
-  { "query": "帮我在 MedinexRPA Mobile 里写个手机脚本，遍历列表", "should_trigger": false },
-  { "query": "Android 上 uiautomator dump 返回 Killed 怎么办", "should_trigger": false },
-  { "query": "用原生 Playwright 写个爬虫抓网页表格", "should_trigger": false },
-  { "query": "帮我写个 Excel 公式统计销售额", "should_trigger": false },
-  { "query": "React 页面上的 CSS 布局怎么修", "should_trigger": false },
-  { "query": "Appium 的 desired capabilities 怎么写", "should_trigger": false },
-  { "query": "scrcpy 命令行怎么用 --max-size", "should_trigger": false },
-  { "query": "怎么在手机上安装 Magisk 模块", "should_trigger": false },
-  { "query": "Python 的 uiautomator2 怎么写自动签到", "should_trigger": false },
-  { "query": "帮我把这个 APK 反编译看看资源", "should_trigger": false }
+  {
+    "query": "MedinexRPA 浏览器版怎么新建一个脚本",
+    "should_trigger": true
+  },
+  {
+    "query": "kit.fill 和 kit.click 有什么区别，选择器怎么写",
+    "should_trigger": true
+  },
+  {
+    "query": "浏览器脚本点击后偶发 timeout，run.log 只有一处报错，怎么排查",
+    "should_trigger": true
+  },
+  {
+    "query": "点击后打开新标签页，waitPage 应该注册在哪里",
+    "should_trigger": true
+  },
+  {
+    "query": "多实例同时跑，截图和 Excel 产物怎么放",
+    "should_trigger": true
+  },
+  {
+    "query": "改完脚本怎么部署到安装版，deploy-scripts 怎么用",
+    "should_trigger": true
+  },
+  {
+    "query": "trace.zip 怎么看，失败截图在哪里",
+    "should_trigger": true
+  },
+  {
+    "query": "meta.useCurrentPage 是什么意思，什么时候用",
+    "should_trigger": true
+  },
+  {
+    "query": "kit.forPage 和 activatePage 有什么区别",
+    "should_trigger": true
+  },
+  {
+    "query": "怎么写浏览器脚本的 HAR 回归和空列表用例",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我在 MedinexRPA Mobile 里写个手机脚本，遍历列表",
+    "should_trigger": false
+  },
+  {
+    "query": "Android 上 uiautomator dump 返回 Killed 怎么办",
+    "should_trigger": false
+  },
+  {
+    "query": "用原生 Playwright 写个爬虫抓网页表格",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我写个 Excel 公式统计销售额",
+    "should_trigger": false
+  },
+  {
+    "query": "React 页面上的 CSS 布局怎么修",
+    "should_trigger": false
+  },
+  {
+    "query": "Appium 的 desired capabilities 怎么写",
+    "should_trigger": false
+  },
+  {
+    "query": "scrcpy 命令行怎么用 --max-size",
+    "should_trigger": false
+  },
+  {
+    "query": "怎么在手机上安装 Magisk 模块",
+    "should_trigger": false
+  },
+  {
+    "query": "Python 的 uiautomator2 怎么写自动签到",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我把这个 APK 反编译看看资源",
+    "should_trigger": false
+  },
+  {
+    "query": "用 medinexrpa-web 帮我启动实例、打开页面并抓一下 DOM 结构",
+    "should_trigger": true
+  },
+  {
+    "query": "MCP 写脚本提示 POLICY_DENIED，script 权限在哪里开",
+    "should_trigger": true
+  },
+  {
+    "query": "MCP 创建了实例，但界面里看不到，怎么同步",
+    "should_trigger": true
+  },
+  {
+    "query": "用 Chrome DevTools MCP 截个图看看页面",
+    "should_trigger": false
+  }
 ]

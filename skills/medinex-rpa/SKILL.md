@@ -30,6 +30,7 @@ MedinexRPA 浏览器版是一个 Electron + Playwright 的桌面 RPA 应用。
 | 查 Web kit（新页面、下载、请求） | `references/kit-web.md` |
 | 确认真实业务副作用边界 | `references/safety.md` |
 | 排查失败、看日志和 trace | `references/debugging.md` |
+| 用 MCP 操作实例和脚本 | `references/mcp.md` |
 | 新脚本骨架 | `assets/script-template.js` |
 
 文档是 API 的主要事实来源；只有文档解释不了实际行为时才读源码，不要靠记忆猜参数。
@@ -85,6 +86,8 @@ MedinexRPA 0.2.40+ 自带 MCP，设置 → AI 接入 里可以生成客户端配
 | 跑脚本 | `run_script` / `run_status` / `run_log` / `stop_run` |
 
 权限分三档：`read`、`act`、`script`。写脚本和跑脚本必须开启 `script`。
+
+先确认可用：设置 → AI 接入 → 测试连接，成功会返回 20 个工具。工具细节、错误码和数据同步见 `references/mcp.md`。
 
 注意：
 
@@ -163,6 +166,7 @@ withTimeout 不会回滚或强制中断底层操作
 网络/下载/新页面等待先注册，再触发
 新标签页用 kit.forPage(page)，不要以为 activatePage 会改变原 kit 的 Page
 err.cancelled 是用户停止，不是失败
+实例分 local / extension：extension 接管用户当前标签页，同一时间只能接管一个
 不在脚本里启动新浏览器，不操作其他实例 profile
 不在 kit 中写站点 URL、业务成功码或专属选择器
 不记录密码、Cookie、Token、完整 Webhook 或不必要的响应体
@@ -224,7 +228,8 @@ err.cancelled === true       用户停止，不是失败
 node --check <script>.js
 node tools/test-kit.mjs          # 修改 kit 时
 node tools/test-kit-web.mjs      # 修改 Web kit 时
-node tools/test-trace.mjs        # 修改运行器/失败现场时
+node tools/test-run-lifecycle.mjs     # 修改运行器时
+node tools/test-artifacts-cleanup.mjs # 修改失败现场/产物清理时
 node tools/test-mock-delete.mjs
 node tools/test-mock-delete-by-author.mjs
 ```
