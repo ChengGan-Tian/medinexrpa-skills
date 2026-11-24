@@ -1,6 +1,6 @@
 ---
 name: medinexrpa-mobile
-description: MedinexRPA Mobile 是独立的 Android RPA 桌面应用。本技能用于介绍产品、从零编写或修改手机脚本、设计参数和选择器、处理等待与滚动列表、图像/OCR 兜底、多设备任务，以及分析 run.log 与失败现场。用户提到 MedinexRPA Mobile、手机 RPA、Android 自动化、adb 设备、scrcpy 镜像、界面树、脚本、selector、任务或镜像时使用；只要在问手机脚本、滚动列表、找不到控件、run.log 报错、多设备并发，即使没有点名技能，也应使用。浏览器版 MedinexRPA 请改用 medinex-rpa。
+description: MedinexRPA Mobile 是独立的 Android RPA 桌面应用。本技能用于介绍产品、从零编写或修改手机脚本、设计参数和选择器、处理等待与滚动列表、图像/OCR 兜底、多设备任务，以及分析 run.log 与失败现场。用户提到 MedinexRPA Mobile、手机 RPA、Android 自动化、adb 设备、scrcpy 镜像、界面树、脚本、selector、任务或镜像时使用；只要在问手机脚本、滚动列表、找不到控件、run.log 报错、多设备并发，即使没有点名技能，也应使用。浏览器版 MedinexRPA 请改用 medinex-rpa；客户端已连接 medinexrpa MCP 时，优先用 MCP 工具操作设备。
 ---
 
 # MedinexRPA Mobile
@@ -47,6 +47,25 @@ AI CLI    读取界面、验证 selector、点击、滑动、输入、等待
 | 模板匹配、OCR、视觉兜底 | `references/vision.md` |
 | 排查失败、日志、已知陷阱 | `references/troubleshooting.md` |
 | 新脚本骨架 | `assets/script-template.js` |
+
+## 通过 MCP 操作（推荐）
+
+手机版自带 MCP（18 个工具），客户端里服务名是 `medinexrpa`。
+
+| 类别 | 工具 |
+|---|---|
+| 设备 | `list_devices` / `device_status` / `screenshot` |
+| 界面 | `ui_dump` / `ui_find` / `wait_for` |
+| 操作 | `tap` / `swipe` / `type_text` / `press_key` / `app_action` |
+| 脚本 | `list_scripts` / `read_script` / `run_script` / `run_status` / `run_log` / `list_runs` / `stop_run` |
+
+权限：`read` / `gesture` / `script`，跑脚本需要 `script`。
+
+注意：
+
+- MCP 不开 GUI 也能用，脚本和运行记录与 GUI 共用数据目录
+- 同一台设备同时只能被 GUI 或 MCP 一方跑脚本（设备锁）
+- 坐标点击默认关闭，优先用 `snapshotId + nodeId` 或界面树定位
 
 ## 写脚本的工作流
 

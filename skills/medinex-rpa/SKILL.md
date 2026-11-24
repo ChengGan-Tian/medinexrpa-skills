@@ -1,6 +1,6 @@
 ---
 name: medinex-rpa
-description: 浏览器版 MedinexRPA（Electron + Playwright）的脚本开发、审查和调试指南；使用通用 kit、分析 run.log/截图/trace、设计回归、修复 RPA bug 和部署脚本。用户提到浏览器版 MedinexRPA、Playwright 浏览器脚本、浏览器实例、kit、元素定位、批量抓取、trace.zip 时使用。手机/Android 版请改用 medinexrpa-mobile。
+description: 浏览器版 MedinexRPA（Electron + Playwright）的脚本开发、审查和调试指南；使用通用 kit、分析 run.log/截图/trace、设计回归、修复 RPA bug 和部署脚本。用户提到浏览器版 MedinexRPA、Playwright 浏览器脚本、浏览器实例、kit、元素定位、批量抓取、trace.zip 时使用。手机/Android 版请改用 medinexrpa-mobile；客户端已连接 medinexrpa-web MCP 时，优先用 MCP 工具操作实例和脚本。
 ---
 
 # 浏览器版 MedinexRPA 工作规范
@@ -65,6 +65,35 @@ node tools/deploy-scripts.mjs <script.js>
 ```
 
 部署会写入本机安装版和测试环境并打防回滚指纹，执行前确认目标环境。源码通过测试不等于已部署，分别报告。
+
+## 通过 MCP 操作（推荐）
+
+MedinexRPA 0.2.40+ 自带 MCP，设置 → AI 接入 里可以生成客户端配置并测试连接。客户端连上后，工具名是 `medinexrpa-web`。
+
+有 MCP 时优先用它，而不是让用户手点：
+
+| 目的 | 工具 |
+|---|---|
+| 看实例 | `list_instances` |
+| 新建 / 启动 / 停止 | `create_instance` / `start_instance` / `stop_instance` |
+| 打开页面 | `open_url` |
+| 看结构 | `dom_dump`（tree / html / aria） |
+| 找可操作元素 | `snapshot`（返回 ref） |
+| 操作页面 | `click` / `fill` / `press_key` |
+| 看脚本文档 | `script_guide`（web / kit / script / all） |
+| 写脚本 | `validate_script` / `write_script` |
+| 跑脚本 | `run_script` / `run_status` / `run_log` / `stop_run` |
+
+权限分三档：`read`、`act`、`script`。写脚本和跑脚本必须开启 `script`。
+
+注意：
+
+- MCP 和 GUI 共用实例、脚本、历史；实例增删改会双向同步
+- 同一实例同时只能被一方启动（实例锁）；GUI 已打开的窗口，MCP 不能接管
+- `write_script` 默认不覆盖，覆盖要传 `overwrite: true`
+- 运行中的任务进度不跨进程，跑完才进历史
+
+没有 MCP 时，按下面的文件和命令行流程。
 
 ## 脚本结构
 
